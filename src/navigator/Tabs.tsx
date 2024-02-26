@@ -7,6 +7,7 @@ import {Platform} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import TopTapNavigator from './TopTapNavigator';
 import {colores} from '../theme/appTheme';
+import SettingsScreen from '../screens/SettingsScreen';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
@@ -34,6 +35,11 @@ const TabsAndroid = () => {
         name="StackNavigator"
         options={{title: 'ST'}}
         component={StackNavigator}
+      />
+      <BottomTabAndroid.Screen
+        name="SettingsScreen"
+        options={{title: 'Settings'}}
+        component={SettingsScreen}
       />
     </BottomTabAndroid.Navigator>
   );
