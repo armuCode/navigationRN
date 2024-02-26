@@ -1,11 +1,17 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, Button} from 'react-native';
 import {styles} from '../theme/appTheme';
 
 const Pagina2Screen = () => {
-  const navigator: any = useNavigation();
-  console.log('🚀 ~ Pagina2Screen ~ navigator:', navigator);
+  const navigator = useNavigation();
+
+  useEffect(() => {
+    navigator.setOptions({
+      title: 'Hola Mundo en pag 2',
+      headerBackTitle: 'Atras',
+    });
+  }, []);
 
   return (
     <View style={styles.globalMargin}>
