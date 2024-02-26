@@ -2,10 +2,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import TabScreen1 from '../screens/TabScreen1';
-import TabScreen2 from '../screens/TabScreen2';
 import {StackNavigator} from './StackNavigator';
 import {Platform} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import TopTapNavigator from './TopTapNavigator';
+import {colores} from '../theme/appTheme';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
@@ -17,7 +18,7 @@ const TabsAndroid = () => {
     <BottomTabAndroid.Navigator
       sceneAnimationEnabled={true}
       barStyle={{
-        backgroundColor: 'blue',
+        backgroundColor: colores.primary,
       }}>
       <BottomTabAndroid.Screen
         name="TabScreen1"
@@ -25,9 +26,9 @@ const TabsAndroid = () => {
         component={TabScreen1}
       />
       <BottomTabAndroid.Screen
-        name="TabScreen2"
-        options={{title: 'T2'}}
-        component={TabScreen2}
+        name="TopTapNavigator"
+        options={{title: 'TopTap'}}
+        component={TopTapNavigator}
       />
       <BottomTabAndroid.Screen
         name="StackNavigator"
@@ -43,7 +44,7 @@ const TabsIOS = () => {
   return (
     <BottomTabIOS.Navigator
       screenOptions={{
-        tabBarActiveBackgroundColor: 'blue',
+        tabBarActiveBackgroundColor: 'colores.primary',
         headerShown: false,
       }}
       sceneContainerStyle={{
@@ -55,9 +56,9 @@ const TabsIOS = () => {
         component={TabScreen1}
       />
       <BottomTabIOS.Screen
-        name="TabScreen2"
+        name="TopTapNavigator"
         options={{title: 'T2'}}
-        component={TabScreen2}
+        component={TopTapNavigator}
       />
       <BottomTabIOS.Screen
         name="StackNavigator"
